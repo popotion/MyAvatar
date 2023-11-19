@@ -1,20 +1,22 @@
 version: '3'
 
 services:
-  database:
+  db:
     image: mariadb
     environment:
-      MYSQL_ROOT_PASSWORD: 'root'
-      MYSQL_DATABASE: 'project'
+      MARIADB_ROOT_PASSWORD: root
+      MYSQL_DATABASE: projet
     networks:
       - myavatar
+    volumes:
+      - ./database-data:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin
     depends_on:
-      - database
+      - db
     links:
-      - "database:db"
+      - "db:db"
     environment:
       MYSQL_ROOT_PASSWORD: root
       PMA_PASSWORD: root
@@ -27,9 +29,6 @@ services:
     command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
     networks:
       - myavatar
-
-volumes:
-  database_data:
 
 networks:
   myavatar:
