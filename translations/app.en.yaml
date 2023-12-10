@@ -1,0 +1,14 @@
+security:
+  register:
+    title: Register
+    action:
+      register: Sign In
+    form:
+      email: Email adress
+      password: Password
+      agreeTerms: I agree terms
+    error:
+      agreeTerms:
+        isNotTrue: You should agree to our terms.
+      password:
+        maxMessage: Le mot de passe doit avoir minimum 6 caractères.
