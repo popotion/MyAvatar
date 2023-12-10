@@ -1,14 +1,45 @@
+menu:
+  account: My account
+  connexion: Login
+  register: Sign up
+
+account:
+  title: My account
+  action:
+    edit: Edit
+    disconnect: Log off
+  form:
+    email: E-mail address
+    pictureProfil: Avatar
+  flash:
+    updated: Profile update completed.
+  error:
+    pictureProfil:
+      mimeTypes: Only images are accepted.
+  disconnect:
+    title: Log off
+    description: If you log out, you will have to log in again to be able to re-edit your profile.
+
 security:
   register:
-    title: Register
+    title: Sign up
     action:
-      register: Sign In
+      register: Sign up
     form:
-      email: Email adress
+      email: E-mail address
       password: Password
-      agreeTerms: I agree terms
+      agreeTerms: I accept the conditions
     error:
       agreeTerms:
-        isNotTrue: You should agree to our terms.
+        isNotTrue: You must accept the terms and conditions
       password:
-        maxMessage: Le mot de passe doit avoir minimum 6 caractères.
+        maxMessage: The password must be at least 6 characters long.
+    flash:
+      created: Your MyAvatar account has been created.
+  login:
+    title: Login
+    action:
+      login: Login
+    form:
+      email: E-mail address
+      password: Password
