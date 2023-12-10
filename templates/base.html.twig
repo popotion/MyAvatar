@@ -10,6 +10,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
         <link rel="shortcut icon" href="{{ asset('build/static/img/favicon.ico') }}" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/solid.css">
 
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
@@ -23,6 +24,16 @@
         <header>
             {% block header '' %}
         </header>
+
+        {% for type,flash in app.flashes %}
+            {% for message in flash %}
+                <div class="alert">
+                    <div class="alert__message alert__message--{{ type }}" role="alert">
+                        {{ message }}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endfor %}
 
         <main>
             {% block content '' %}

@@ -17,6 +17,8 @@ security:
         isNotTrue: Vous devez accepter les termes et conditions
       password:
         maxMessage: Le mot de passe doit avoir minimum 6 caractères.
+    flash:
+      created: Votre compte MyAvatar à bien était crée.
   login:
     title: Connexion
     action:

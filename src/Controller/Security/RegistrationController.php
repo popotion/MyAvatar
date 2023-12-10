@@ -64,7 +64,9 @@ class RegistrationController extends AbstractController
                     ->htmlTemplate('security/confirmation_email.html.twig')
             );*/
 
-            return $this->redirectToRoute(RouteCollectionFront::HOMEPAGE->prefixed());
+            $this->addFlash('success', $this->translator->trans('security.register.flash.created', [], 'app'));
+
+            return $this->redirectToRoute(RouteCollection::LOGIN->prefixed());
         }
 
         return $this->render('security/register.html.twig', [
