@@ -11,5 +11,6 @@ enum RouteCollection: string implements RouteCollectionInterface
 
     case REGISTER = 'security_register';
     case LOGIN = 'security_login';
+    case LOGOUT = 'security_logout';
     case EMAIL_REGISTER = 'verify_email';
 }

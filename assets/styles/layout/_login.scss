@@ -3,7 +3,9 @@
   background-color: $white-gray;
   border-radius: 15px;
   margin: 2em auto auto;
-
+  @media (min-width: $min-width) {
+    width: 50%;
+  }
 
   &_content {
     width: 80%;
