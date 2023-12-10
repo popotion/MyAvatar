@@ -6,6 +6,18 @@
 
 {% block account_content %}
     <div class="my_account__container">
+        <div class="my_account__content">
+            <div class="my_account__content_title">
+                <h2>Mon compte</h2>
+            </div>
 
+            {{ form_start(form) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.pictureProfile) }}
+
+
+                <input type="submit" class="form_submit btn btn-text-primary" value="{{ 'account.action.edit'|trans }}">
+            {{ form_end(form) }}
+        </div>
     </div>
 {% endblock %}

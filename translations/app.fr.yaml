@@ -5,6 +5,16 @@ menu:
 
 account:
   title: Mon compte
+  action:
+    edit: Modifier
+  form:
+    email: Adresse mail
+    pictureProfil: Avatar
+  flash:
+    updated: Mise à jour du profil effectuée
+  error:
+    pictureProfil:
+      mimeTypes: Seul des images sont accepter.
 
 security:
   register:

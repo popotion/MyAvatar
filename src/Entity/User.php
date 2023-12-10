@@ -7,9 +7,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
-
+use Symfony\Component\Serializer\Attribute\Ignore;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[UniqueEntity(fields: ['email'], message: 'Cet email est déjà enregistrer')]
+#[Vich\Uploadable]
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -31,6 +34,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
+
+    #[Vich\UploadableField(mapping: 'userPictureProfile', fileNameProperty: 'pictureProfileName')]
+    private ?File $pictureProfile = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?string $pictureProfileName = null;
 
     public function getId(): ?int
     {
@@ -112,5 +121,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->isVerified = $isVerified;
 
         return $this;
+    }
+
+    public function getPictureProfile(): ?File
+    {
+        return $this->pictureProfile;
+    }
+
+    public function setPictureProfile(?File $pictureProfile): void
+    {
+        $this->pictureProfile = $pictureProfile;
+    }
+
+    public function getPictureProfileName(): ?string
+    {
+        return $this->pictureProfileName;
+    }
+
+    public function setPictureProfileName(?string $pictureProfileName): void
+    {
+        $this->pictureProfileName = $pictureProfileName;
     }
 }
