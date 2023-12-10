@@ -7,6 +7,7 @@ account:
   title: Mon compte
   action:
     edit: Modifier
+    disconnect: Déconnexion
   form:
     email: Adresse mail
     pictureProfil: Avatar
@@ -15,6 +16,9 @@ account:
   error:
     pictureProfil:
       mimeTypes: Seul des images sont accepter.
+  disconnect:
+    title: Déconnexion
+    description: Si vous vous déconnecter, il vous faudrat vous reconnecter pour pouvoir réediter votre profile.
 
 security:
   register:

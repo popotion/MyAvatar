@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(
     path: '/avatar/{id}',
-    name: 'app_avatar',
+    name: 'avatar',
     methods: ['GET']
 )]
 class AvatarController extends AbstractController

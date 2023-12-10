@@ -14,6 +14,7 @@
             {{ form_start(form) }}
                 {{ form_row(form.email) }}
                 {{ form_row(form.pictureProfile) }}
+                <a class="my_account__content_pictureProfile_url" href="{{ link }}">{{ link }}</a>
 
 
                 <input type="submit" class="form_submit btn btn-text-primary" value="{{ 'account.action.edit'|trans }}">
@@ -22,13 +23,13 @@
 
         <div class="account_disconnect__content">
             <div class="account_disconnect__content_title">
-                <h2>Déconnexion</h2>
+                <h2>{{ 'account.disconnect.title'|trans }}</h2>
             </div>
-            <p class="account_disconnect__content_description">Si vous vous déconnecter, il faudrat vous reconnecter pour pouvoir réediter votre profile.</p>
+            <p class="account_disconnect__content_description">{{ 'account.disconnect.description'|trans }}</p>
 
             <a href="{{ path('app_security_logout') }}">
                 <button class="btn btn-background-primary">
-                    Déconnexion
+                    {{ 'account.action.disconnect'|trans }}
                 </button>
             </a>
         </div>

@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
@@ -71,8 +72,15 @@ class AccountController extends AbstractController
         }
 
 
+        $link = $this->generateUrl(
+            'app_avatar', [
+                'id'=>md5($user->getEmail())
+            ],
+            UrlGeneratorInterface::ABSOLUTE_URL
+        );
         return $this->render('account/account.html.twig', [
             'form' => $form->createView(),
+            'link' => $link,
         ]);
     }
 }

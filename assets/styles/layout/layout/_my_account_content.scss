@@ -93,6 +93,13 @@
         margin-bottom: 2em;
       }
     }
+    .my_account__content_pictureProfile_url {
+      font-size: .7rem;
+    }
+    .my_account__content_pictureProfile_url:hover {
+      color: $primary;
+      text-decoration: underline;
+    }
 
   }
 
