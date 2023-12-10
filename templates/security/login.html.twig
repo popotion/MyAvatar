@@ -1,0 +1,41 @@
+{% extends 'security/base.html.twig' %}
+
+{% trans_default_domain 'app' %}
+
+{% block title %}Login{% endblock %}
+
+{% block security_content %}
+    <div class="login__container">
+        <div class="login__container_content">
+            {% if error %}
+                <div class="alert alert-danger" role="alert">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            {% endif %}
+
+            <h2 class="login__container_title">
+                <img src="{{ asset('build/static/img/favicon.ico') }}" alt="Icone website"/>
+                <p>{{ 'security.login.title'|trans }}</p>
+            </h2>
+
+            <form action="{{ path('app_security_login') }}" class="security_form" method="post">
+                <div class="security_form_form_group security_form_form_group_col">
+                    <div class="security_form_input">
+                        <label for="username" class="security_form_label security_form_label_required">{{ 'security.login.form.email'|trans }}</label>
+                        <input type="text" id="username" name="_username" value="{{ last_username }}">
+                    </div>
+                </div>
+
+                <div class="security_form_form_group security_form_form_group_col">
+                    <div class="security_form_input">
+                        <label for="password" class="security_form_label security_form_label_required">{{ 'security.login.form.password'|trans }}</label>
+                        <input type="password" id="password" name="_password">
+                    </div>
+                </div>
+
+                {# If you want to control the URL the user is redirected to on success
+        <input type="hidden" name="_target_path" value="/account"> #}
+
+                <button type="submit" class="security_form_submit">{{ 'security.login.action.login'|trans }}</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

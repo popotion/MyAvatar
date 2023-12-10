@@ -10,5 +10,6 @@ enum RouteCollection: string implements RouteCollectionInterface
     use AppRouteCollectionTrait;
 
     case REGISTER = 'security_register';
+    case LOGIN = 'security_login';
     case EMAIL_REGISTER = 'verify_email';
 }

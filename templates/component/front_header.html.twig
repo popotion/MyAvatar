@@ -1,13 +1,19 @@
+{% trans_default_domain 'app' %}
+
 <div class="header__container">
     <div class="header__container_logo">
-        <img src="{{ asset('build/static/img/favicon.ico') }}" alt="Icone MyAvatar"/>
+        <a href="{{ path('app_homepage') }}"><img src="{{ asset('build/static/img/favicon.ico') }}" alt="Icone MyAvatar"/></a>
         <p>MyAvatar</p>
     </div>
 
     <nav>
         <ul>
-            <li class="btn btn-text-primary"><a href="#">Se connecter</a></li>
-            <li class="btn btn-background-primary"><a href="{{ path('app_security_register') }}">S'inscrire</a></li>
+            {% if is_granted('ROLE_USER') %}
+                <li class="btn btn-background-primary"><a href="#">{{ 'menu.account'|trans }}</a></li>
+            {% else %}
+                <li class="btn btn-text-primary"><a href="{{ path('app_security_login') }}">{{ 'menu.connexion'|trans }}</a></li>
+                <li class="btn btn-background-primary"><a href="{{ path('app_security_register') }}">{{ 'menu.register'|trans }}</a></li>
+            {% endif %}
         </ul>
     </nav>
 </div>

@@ -1,3 +1,8 @@
+menu:
+  account: Mon compte
+  connexion: Se connecter
+  register: S'inscrire
+
 security:
   register:
     title: Inscription
@@ -12,3 +17,10 @@ security:
         isNotTrue: Vous devez accepter les termes et conditions
       password:
         maxMessage: Le mot de passe doit avoir minimum 6 caractères.
+  login:
+    title: Connexion
+    action:
+      login: Se Connecter
+    form:
+      email: Adresse mail
+      password: Mot de passe
