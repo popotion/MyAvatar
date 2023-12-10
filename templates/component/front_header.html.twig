@@ -10,8 +10,8 @@
 
     <nav>
         <ul>
-            {% if is_granted('ROLE_USER') %}
-                <li class="btn btn-background-primary"><a href="#">{{ 'menu.account'|trans }}</a></li>
+            {% if is_granted('IS_AUTHENTICATED') %}
+                <li class="btn btn-background-primary"><a href="{{ path('app_account') }}">{{ 'menu.account'|trans }}</a></li>
             {% else %}
                 <li class="btn btn-text-primary"><a href="{{ path('app_security_login') }}">{{ 'menu.connexion'|trans }}</a></li>
                 <li class="btn btn-background-primary"><a href="{{ path('app_security_register') }}">{{ 'menu.register'|trans }}</a></li>

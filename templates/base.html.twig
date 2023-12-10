@@ -20,7 +20,7 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
-    <body>
+    <body {% block body_attributes '' %}>
         <header>
             {% block header '' %}
         </header>

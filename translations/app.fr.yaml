@@ -3,6 +3,9 @@ menu:
   connexion: Se connecter
   register: S'inscrire
 
+account:
+  title: Mon compte
+
 security:
   register:
     title: Inscription
