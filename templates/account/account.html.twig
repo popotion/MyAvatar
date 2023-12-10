@@ -19,5 +19,18 @@
                 <input type="submit" class="form_submit btn btn-text-primary" value="{{ 'account.action.edit'|trans }}">
             {{ form_end(form) }}
         </div>
+
+        <div class="account_disconnect__content">
+            <div class="account_disconnect__content_title">
+                <h2>Déconnexion</h2>
+            </div>
+            <p class="account_disconnect__content_description">Si vous vous déconnecter, il faudrat vous reconnecter pour pouvoir réediter votre profile.</p>
+
+            <a href="{{ path('app_security_logout') }}">
+                <button class="btn btn-background-primary">
+                    Déconnexion
+                </button>
+            </a>
+        </div>
     </div>
 {% endblock %}

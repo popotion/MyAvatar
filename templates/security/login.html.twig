@@ -31,8 +31,7 @@
                     </div>
                 </div>
 
-                {# If you want to control the URL the user is redirected to on success
-        <input type="hidden" name="_target_path" value="/account"> #}
+                <input type="hidden" name="_target_path" value="{{ path('app_account') }}">
 
                 <button type="submit" class="security_form_submit">{{ 'security.login.action.login'|trans }}</button>
             </form>
