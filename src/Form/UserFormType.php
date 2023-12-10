@@ -45,7 +45,6 @@ class UserFormType extends AbstractType
                 'constraints' => [
                     new File([
                         'mimeTypes' => [
-                            'image/vnd.microsoft.icon',
                             'image/jpeg',
                             'image/png',
                         ],

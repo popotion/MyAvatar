@@ -50,9 +50,7 @@ class AccountController extends AbstractController
             $userData = $form->getData();
 
             if ($profilePictureFile) {
-                $originalFilename = pathinfo($profilePictureFile->getClientOriginalName(), PATHINFO_FILENAME);
-                $safeFilename = $slugger->slug($originalFilename);
-                $newFilename = $safeFilename.'-'.uniqid().'.'.$profilePictureFile->guessExtension();
+                $newFilename = md5($userData->getEmail()).'.'.$profilePictureFile->guessExtension();
 
                 try {
                     $profilePictureFile->move(

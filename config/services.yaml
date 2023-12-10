@@ -7,6 +7,7 @@ parameters:
     locale: fr
     app_locales: fr|en
     profilePictureDirectory: '%kernel.project_dir%/public/uploads/profilepictures'
+    publicDirectory: '%kernel.project_dir%/public'
 
 services:
     # default configuration for services in *this* file
