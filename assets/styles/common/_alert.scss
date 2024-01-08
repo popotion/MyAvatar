@@ -1,0 +1,52 @@
+.alert {
+  position: fixed;
+  margin-top: 2.5em;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  opacity: 1;
+  -webkit-transition: opacity 1000ms linear;
+  transition: opacity 1000ms linear;
+  width: 100%;
+  float: right;
+
+  &__message {
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: $global-radius;
+    padding: 1rem;
+    text-align: center;
+    width: 45%;
+    margin-left: 0;
+
+    @media screen and (min-width: $min-width) {
+      margin-right: 2em;
+    }
+
+    &--success {
+      color: #155724;
+      background-color: #d4edda;
+      border-color: #c3e6cb;
+    }
+
+    &--info {
+      color: #004085;
+      background-color: #cce5ff;
+      border-color: #b8daff;
+    }
+
+    &--danger {
+      color: #721c24;
+      background-color: #f8d7da;
+      border-color: #f5c6cb;
+    }
+
+    &--warning {
+      color: #856404;
+      background-color: #fff3cd;
+      border-color: #ffeeba;
+    }
+  }
+}
+

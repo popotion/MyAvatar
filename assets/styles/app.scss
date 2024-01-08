@@ -1,0 +1,21 @@
+@import "~bootstrap/scss/bootstrap";
+
+@import 'common/variables.scss';
+@import 'common/fonts.scss';
+@import 'common/alert.scss';
+@import 'layout/front.scss';
+@import 'layout/security.scss';
+@import 'layout/account.scss';
+
+body {
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+* {
+  font-family: Varela Round,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}

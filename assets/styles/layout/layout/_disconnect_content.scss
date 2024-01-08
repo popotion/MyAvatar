@@ -1,0 +1,40 @@
+.account_disconnect__content {
+  width: 90%;
+  margin: auto;
+  background-color: $red_light;
+  padding-top: 1em;
+  margin-top: 1em;
+  color: $white;
+  @media (min-width: $min-width) {
+    width: 40%;
+    margin: auto;
+  }
+
+  .account_disconnect__content_title {
+    h2 {
+      font-weight: bold;
+      margin-left: 1em;
+      @media (min-width: $min-width) {
+        padding-top: 1em;
+      }
+    }
+  }
+  .account_disconnect__content_description {
+    margin-left: 1em;
+  }
+
+  a {
+    display: block;
+    width: 90%;
+    margin: auto;
+
+    button {
+      width: 100%;
+      margin: 2em auto 1em;
+      @media (min-width: $min-width) {
+        margin-top: 5em;
+        margin-bottom: 2em;
+      }
+    }
+  }
+}

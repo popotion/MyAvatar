@@ -1,0 +1,106 @@
+.my_account__content {
+  width: 90%;
+  margin: auto;
+  background-color: $white-gray;
+  padding-top: 1em;
+  @media (min-width: $min-width) {
+    width: 40%;
+    margin: auto;
+  }
+
+  .my_account__content_title {
+    margin-bottom: 2em;
+
+    h2 {
+      font-weight: bold;
+      margin-left: 1em;
+      @media (min-width: $min-width) {
+        padding-top: 1em;
+      }
+    }
+  }
+
+  form {
+    width: 90%;
+    margin: auto;
+
+    div {
+      display: flex;
+      flex-direction: column;
+
+      .required::after {
+        content: '*';
+        color: $red;
+      }
+      label {
+        text-transform: uppercase;
+        font-size: .8rem;
+        margin-top: 1em;
+      }
+
+      input {
+        padding: 5px 10px;
+        border: 1px solid #d4d4d4;
+      }
+      .readonly {
+        color: #d4d4d4;
+      }
+
+      .vich-image {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        @media (min-width: $min-width) {
+          flex-direction: column-reverse;
+        }
+
+        a {
+          width: 50px;
+          img {
+            height: 50px;
+          }
+        }
+        @media (min-width: $min-width) {
+          a {
+            width: 150px;
+            margin: auto;
+            margin-bottom: 1em;
+
+            img {
+              height: 150px;
+            }
+          }
+        }
+      }
+
+      ul {
+        margin-left: 0;
+        padding-left: 0;
+
+        li {
+          color: $red;
+          font-size: .8rem;
+          list-style: none;
+          margin-left: 0;
+        }
+      }
+    }
+    .form_submit {
+      width: 100%;
+      margin: 2em auto 1em;
+      @media (min-width: $min-width) {
+        margin-top: 5em;
+        margin-bottom: 2em;
+      }
+    }
+    .my_account__content_pictureProfile_url {
+      font-size: .7rem;
+    }
+    .my_account__content_pictureProfile_url:hover {
+      color: $primary;
+      text-decoration: underline;
+    }
+
+  }
+
+}

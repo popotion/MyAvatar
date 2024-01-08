@@ -1,0 +1,24 @@
+.btn {
+  padding: 5px 15px;
+  border-radius: .5em;
+}
+.btn:hover {
+  text-decoration: underline;
+}
+
+.btn-text-primary {
+  border: 1px solid $primary;
+  color: $primary;
+}
+.btn-text-primary:hover {
+  background-color: $primary;
+  color: $white;
+}
+.btn-background-primary {
+  background-color: $primary;
+  color: $white;
+}
+.btn-background-primary:hover {
+  border: 1px solid $primary;
+  color: $primary;
+}

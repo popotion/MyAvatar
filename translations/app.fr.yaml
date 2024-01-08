@@ -1,0 +1,45 @@
+menu:
+  account: Mon compte
+  connexion: Se connecter
+  register: S'inscrire
+
+account:
+  title: Mon compte
+  action:
+    edit: Modifier
+    disconnect: Déconnexion
+  form:
+    email: Adresse mail
+    pictureProfil: Avatar
+  flash:
+    updated: Mise à jour du profil effectuée
+  error:
+    pictureProfil:
+      mimeTypes: Seul des images sont accepter.
+  disconnect:
+    title: Déconnexion
+    description: Si vous vous déconnecter, il vous faudrat vous reconnecter pour pouvoir réediter votre profile.
+
+security:
+  register:
+    title: Inscription
+    action:
+      register: S'enregistrer
+    form:
+      email: Adresse mail
+      password: Mot de passe
+      agreeTerms: J'accepte les conditions
+    error:
+      agreeTerms:
+        isNotTrue: Vous devez accepter les termes et conditions
+      password:
+        maxMessage: Le mot de passe doit avoir minimum 6 caractères.
+    flash:
+      created: Votre compte MyAvatar à bien était crée.
+  login:
+    title: Connexion
+    action:
+      login: Se Connecter
+    form:
+      email: Adresse mail
+      password: Mot de passe

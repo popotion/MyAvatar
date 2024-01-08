@@ -1,0 +1,64 @@
+{% extends 'security/base.html.twig' %}
+
+{% trans_default_domain 'app' %}
+
+{% block title %}Register{% endblock %}
+
+{% block security_content %}
+    <div class="register__container">
+        <div class="register__container_content">
+            {% for flash_error in app.flashes('verify_email_error') %}
+                <div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+            {% endfor %}
+
+            <h2 class="register__container_title">
+                <img src="{{ asset('build/static/img/favicon.ico') }}" alt="Icone website"/>
+                <p>{{ 'security.register.title'|trans }}</p>
+            </h2>
+
+            {{ form_start(registrationForm, {attr: {
+                'class': 'security_form'
+            }}) }}
+                <div class="security_form_form_group security_form_form_group_col">
+                    <div class="security_form_input">
+                        <label for="#" class="security_form_label security_form_label_required">{{ 'security.register.form.email'|trans }}</label>
+                        {{ form_widget(registrationForm.email) }}
+                        <div class="security_form_errors">
+                            {{ form_errors(registrationForm.email, {attr: {
+                                'class': 'security_form_error'
+                            }}) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="security_form_form_group">
+                    <div class="security_form_col">
+                        <div class="security_form_input">
+                            <label for="#" class="security_form_label security_form_label_required">{{ 'security.register.form.password'|trans }}</label>
+                            {{ form_widget(registrationForm.plainPassword) }}
+                            <div class="security_form_errors">
+                                {{ form_errors(registrationForm.plainPassword, {attr: {
+                                    'class': 'security_form_error'
+                                }}) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="security_form_form_group">
+                    <div class="security_form_col">
+                        <div class="security_form_input security_form_input_row">
+                            <label for="#" class="security_form_label security_form_label_required">{{ 'security.register.form.agreeTerms'|trans }}</label>
+                            {{ form_widget(registrationForm.agreeTerms) }}
+                            <div class="security_form_errors">
+                                {{ form_errors(registrationForm.agreeTerms, {attr: {
+                                    'class': 'security_form_error'
+                                }}) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="security_form_submit">{{ 'security.register.action.register'|trans }}</button>
+            {{ form_end(registrationForm) }}
+        </div>
+    </div>
+{% endblock %}

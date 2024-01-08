@@ -1,0 +1,37 @@
+{% extends 'account/base.html.twig' %}
+
+{% trans_default_domain 'app' %}
+
+{% block title %}{{ 'account.title'|trans }}{% endblock %}
+
+{% block account_content %}
+    <div class="my_account__container">
+        <div class="my_account__content">
+            <div class="my_account__content_title">
+                <h2>{{ 'account.title'|trans }}</h2>
+            </div>
+
+            {{ form_start(form) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.pictureProfile) }}
+                <a class="my_account__content_pictureProfile_url" href="{{ link }}">{{ link }}</a>
+
+
+                <input type="submit" class="form_submit btn btn-text-primary" value="{{ 'account.action.edit'|trans }}">
+            {{ form_end(form) }}
+        </div>
+
+        <div class="account_disconnect__content">
+            <div class="account_disconnect__content_title">
+                <h2>{{ 'account.disconnect.title'|trans }}</h2>
+            </div>
+            <p class="account_disconnect__content_description">{{ 'account.disconnect.description'|trans }}</p>
+
+            <a href="{{ path('app_security_logout') }}">
+                <button class="btn btn-background-primary">
+                    {{ 'account.action.disconnect'|trans }}
+                </button>
+            </a>
+        </div>
+    </div>
+{% endblock %}

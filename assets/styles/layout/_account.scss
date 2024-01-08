@@ -1,0 +1,19 @@
+.account__container {
+  width: 100%;
+
+  .my_account__container {
+    width: 100%;
+    height: 100vh;
+    max-height: calc(100vh - 66px);
+    background-color: $primary_dark;
+    padding-top: 2em;
+    display: flex;
+    flex-direction: column;
+    @media (min-width: $min-width) {
+      flex-direction: row;
+    }
+
+    @import 'layout/my_account_content.scss';
+    @import 'layout/disconnect_content.scss';
+  }
+}
