@@ -4,12 +4,19 @@
 @import "common/fonts.scss";
 @import "common/alert.scss";
 @import "common/buttons.scss";
+
 @import "layout/front.scss";
 @import "layout/security.scss";
 @import "layout/account.scss";
 
+html {
+  height: 100%;
+  width: 100%;
+}
+
 body {
   width: 100%;
+  height: 100%;
 }
 
 a {

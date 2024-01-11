@@ -25,15 +25,14 @@ class HomepageController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            dd($data);
+            $emailUser = md5($form->get('email')->getData());
 
-            // return $this->redirectToRoute(
-            //     RouteCollection::SEE_MY_AVATAR->value,
-            //     [
-            //         'username' => $data['username'],
-            //     ]
-            // );
+            return $this->redirectToRoute(
+                'app_avatar',
+                [
+                    'id' => $emailUser,
+                ]
+            );
         }
 
         return $this->render('front/homepage.html.twig', [

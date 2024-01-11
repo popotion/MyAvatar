@@ -24,8 +24,7 @@ class AvatarController extends AbstractController
 
     public function __invoke(
         string $id,
-    ): ?BinaryFileResponse
-    {
+    ): ?BinaryFileResponse {
         $imageUrl = $this->getParameter('profilePictureDirectory') . '/' . $id;
 
         if ($this->filesystem->exists($imageUrlWithExtension = $imageUrl . '.jpeg')) {
@@ -34,7 +33,7 @@ class AvatarController extends AbstractController
             );
         }
 
-        if($this->filesystem->exists($imageUrlWithExtension = $imageUrl . '.jpg')) {
+        if ($this->filesystem->exists($imageUrlWithExtension = $imageUrl . '.jpg')) {
             return new BinaryFileResponse(
                 $imageUrlWithExtension
             );
