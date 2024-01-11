@@ -31,9 +31,7 @@ class AccountController extends AbstractController
 
     public function __invoke(
         Request $request,
-        SluggerInterface $slugger,
-    ): Response
-    {
+    ): Response {
         /** @var User $user */
         $user = $this->getUser();
 
@@ -43,15 +41,16 @@ class AccountController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             /** @var UploadedFile $profilePictureFile */
             $profilePictureFile = $form->get('pictureProfile')->getData();
 
             /** @var User $userData */
             $userData = $form->getData();
+            dd($userData);
 
             if ($profilePictureFile) {
-                $newFilename = md5($userData->getEmail()).'.'.$profilePictureFile->guessExtension();
+                $newFilename = md5($userData->getEmail()) . '.' . $profilePictureFile->guessExtension();
 
                 try {
                     $profilePictureFile->move(
@@ -73,8 +72,9 @@ class AccountController extends AbstractController
 
 
         $link = $this->generateUrl(
-            'app_avatar', [
-                'id'=>md5($user->getEmail())
+            'app_avatar',
+            [
+                'id' => md5($user->getEmail())
             ],
             UrlGeneratorInterface::ABSOLUTE_URL
         );

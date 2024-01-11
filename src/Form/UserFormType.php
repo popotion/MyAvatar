@@ -52,6 +52,26 @@ class UserFormType extends AbstractType
                     ])
                 ]
             ])
+            ->add('firstName', TextType::class, [
+                'required' => true,
+                'constraints' => [
+                    new NotNull(),
+                    new NotBlank([
+                        'message' => $translator->trans('security.register.error.firstNameNotBlank', [], 'app'),
+                    ]),
+                ],
+                'label' => $translator->trans('account.form.firstName', [], 'app')
+            ])
+            ->add('lastName', TextType::class, [
+                'required' => true,
+                'constraints' => [
+                    new NotNull(),
+                    new NotBlank([
+                        'message' => $translator->trans('security.register.error.lastNameNotBlank', [], 'app'),
+                    ]),
+                ],
+                'label' => $translator->trans('account.form.lastName', [], 'app')
+            ])
         ;
     }
 

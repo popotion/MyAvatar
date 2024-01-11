@@ -28,7 +28,9 @@ account:
     disconnect: Déconnexion
   form:
     email: Adresse mail
-    pictureProfil: Avatar
+    pictureProfil: Photo de profil
+    firstName: Prénom
+    lastName: Nom
   flash:
     updated: Mise à jour du profil effectuée
   error:
