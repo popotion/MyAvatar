@@ -3,6 +3,14 @@ menu:
   connexion: Se connecter
   register: S'inscrire
 
+front:
+  homepage:
+    title: Votre gestionnaire de photo de profile.
+    description: Grâce à MyAvatar, vous pouvez gérer vos photos de profile et les utiliser sur les sites qui le permettent.
+    form:
+      email_placeholder: Votre adresse e-mail
+      submit: Voir le profile
+
 account:
   title: Mon compte
   action:

@@ -1,11 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
 
-@import 'common/variables.scss';
-@import 'common/fonts.scss';
-@import 'common/alert.scss';
-@import 'layout/front.scss';
-@import 'layout/security.scss';
-@import 'layout/account.scss';
+@import "common/variables.scss";
+@import "common/fonts.scss";
+@import "common/alert.scss";
+@import "common/buttons.scss";
+@import "layout/front.scss";
+@import "layout/security.scss";
+@import "layout/account.scss";
 
 body {
   width: 100%;
@@ -17,5 +18,25 @@ a {
 }
 
 * {
-  font-family: Varela Round,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+  font-family: Varela Round, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji,
+    Segoe UI Symbol;
+}
+
+.toDesktop {
+  display: none;
+}
+
+.toMobile {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .toDesktop {
+    display: block;
+  }
+
+  .toMobile {
+    display: none;
+  }
 }
