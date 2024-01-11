@@ -2,18 +2,18 @@
 
 namespace App\Controller\Account;
 
+use App\Controller\Front\RouteCollection as FrontRouteCollection;
 use App\Entity\User;
 use App\Form\UserFormType;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Messenger\User\UpdateUser;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
-use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 #[Route(
@@ -25,7 +25,7 @@ class AccountController extends AbstractController
 {
     public function __construct(
         private readonly TranslatorInterface $translator,
-        private readonly EntityManagerInterface $entityManager,
+        private readonly MessageBusInterface $messageBus,
     ) {
     }
 
@@ -47,24 +47,14 @@ class AccountController extends AbstractController
 
             /** @var User $userData */
             $userData = $form->getData();
-            dd($userData);
 
-            if ($profilePictureFile) {
-                $newFilename = md5($userData->getEmail()) . '.' . $profilePictureFile->guessExtension();
-
-                try {
-                    $profilePictureFile->move(
-                        $this->getParameter('profilePictureDirectory'),
-                        $newFilename
-                    );
-                } catch (FileException $e) {
-                }
-
-                $userData->setPictureProfileName($newFilename);
-            }
-
-            $this->entityManager->persist($userData);
-            $this->entityManager->flush();
+            $this->messageBus->dispatch(
+                new UpdateUser(
+                    $userData,
+                    $profilePictureFile,
+                    $this->getParameter('profilePictureDirectory'),
+                )
+            );
 
             $this->addFlash('success', $this->translator->trans('account.flash.updated', [], 'app'));
             return $this->redirectToRoute(RouteCollection::ACCOUNT->prefixed());
@@ -72,7 +62,7 @@ class AccountController extends AbstractController
 
 
         $link = $this->generateUrl(
-            'app_avatar',
+            FrontRouteCollection::AVATAR->prefixed(),
             [
                 'id' => md5($user->getEmail())
             ],
