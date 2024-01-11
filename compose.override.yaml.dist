@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  db:
+    image: mariadb
+    ports:
+      - "3307:3306"
+
+  phpmyadmin:
+    ports:
+      - "8081:80"
+
+  maildev:
+    ports:
+      - "1081:80"
+      - "26:25"

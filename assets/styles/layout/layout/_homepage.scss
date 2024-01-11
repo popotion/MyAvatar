@@ -1,7 +1,8 @@
 .front_homepage__container {
-  margin-top: 5em;
-  margin-left: 2em;
-  margin-right: 2em;
+  padding-top: 5em;
+  height: 86vh;
+  width: 90%;
+  margin: auto;
   @media (min-width: $min-width) {
     width: 50%;
     margin-left: 5em;
@@ -15,8 +16,20 @@
     h4 {
       font-size: 1rem;
     }
-    p {
-      color: $gray;
+  }
+
+  &_see_avatar_form {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+
+    input {
+      padding: 0.5rem;
+      width: 75%;
     }
+  }
+
+  &_footer {
+    color: $gray;
   }
 }

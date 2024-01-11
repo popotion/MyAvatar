@@ -1,55 +1,62 @@
-include .env.dev
-.DEFAULT_GLOBAL = help
-.PHONY: assets vendors
+.DEFAULT_GOAL = help
+SF=symfony
+CONSOLE=$(SF) console
+COMPOSER = composer
+NPM = npm
+DOCKER = docker
+DC = $(DOCKER) compose
 
-CONSOLE=symfony console
-COMPOSER=symfony composer
+##
+## —— Utils ⚙️ ————————————————————————————————————————————————————————————————
+help: ## Outputs this help screen
+	@grep -E '(^[a-zA-Z0-9\./_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}{printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' | sed -e 's/\[32m##/[33m/'
 
-help:		## Shows this help hint
-	@grep -E '(^[a-zA-Z_-]+:.*?##.*$$)|(^##)' $(MAKEFILE_LIST) \
-	| sed 's/.*Makefile://' \
-	| awk 'BEGIN {FS = ":.*?## "}; {printf "\033[32m%-30s\033[0m %s\n", $$1, $$2}' \
-	| sed -e 's/\[32m##/[33m/' \
+cc:			## Clear cache
+	$(CONSOLE) ca:cl -e $(or $(ENV), 'dev')
 
+install: 	## Install project
+install: config vendors npm
 
 start:		## Start project
-start: config docker vendors sf-start npm
+start: install docker-start sf-start 
 
 stop:		## Stop project
-	symfony server:stop
-	docker-compose stop
+stop: docker-stop sf-stop
+	$(SF) server:stop
+	$(DC) stop
 
 restart:	## Restart project
 restart: stop start
 
+sf-start: 	## Start symfony server
 sf-start:
-	symfony server:start -d
-	docker-compose up -d
+	$(SF) server:start -d
 
-##---------------------------------------------------------------------------
-## Docker
-##
-docker:		## Start docker container
-	@docker-compose up -d --remove-orphans
+sf-stop: 	## Stop symfony server
+sf-stop:
+	$(SF) server:stop
 
-##---------------------------------------------------------------------------
-## Dependencies
+
 ##
+## —— Docker 🐳 ————————————————————————————————————————————————————————————————
+docker-start:		## Start docker container
+	@$(DC) up -d --remove-orphans
+
+docker-stop:		## Stop docker container
+	@$(DC) stop
+
+
+##
+## —— Dependencies 🧱 ————————————————————————————————————————————————————————————————
 vendors:	## Install php dependencies
 	$(COMPOSER) install
 
 npm:		## Install front dependencies
-	npm install
+	$(NPM) install
 
-##---------------------------------------------------------------------------
-## Cache
-##
-cc:			## Clear cache
-	$(CONSOLE) ca:cl -e $(or $(ENV), 'dev')
 
-##---------------------------------------------------------------------------
-## Database & Data
 ##
+## —— Database 📊 ————————————————————————————————————————————————————————————————
 db-init: 	## Init project's database
 	$(CONSOLE) d:d:drop -n --force --if-exists
 	$(CONSOLE) d:d:create -q
@@ -68,3 +75,16 @@ ifeq (, $(shell which symfony))
 db-reload: CONSOLE=php bin/console
 endif
 db-reload: db-init db-migrate
+
+##
+## —— Configuration 📋 ————————————————————————————————————————————————————————————————
+config:		## Init project configuration
+config: env.local compose.override.yaml
+
+compose.override.yaml: compose.override.yaml.dist
+	@echo "🖍️ Copying compose override distant file"
+	@cp compose.override.yaml.dist compose.override.yaml
+
+env.local: .env.local.dist
+	@echo "🖍️ Copying env file"
+	@cp .env.local.dist .env.local

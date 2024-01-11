@@ -2,43 +2,43 @@
 
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>MyAvatar</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" href="{{ asset('build/static/img/favicon.ico') }}" type="image/x-icon">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/solid.css">
+	<head>
+		<meta charset="UTF-8">
+		<title>MyAvatar</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+		<link rel="shortcut icon" href="{{ asset('build/static/img/favicon.svg') }}" type="image/x-icon">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/solid.css">
 
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-        {% endblock %}
-    </head>
-    <body {% block body_attributes '' %}>
-        <header>
-            {% block header '' %}
-        </header>
+		{% block javascripts %}
+			{{ encore_entry_script_tags('app') }}
+		{% endblock %}
+	</head>
+	<body {% block body_attributes '' %}>
+		<header>
+			{% block header '' %}
+		</header>
 
-        {% for type,flash in app.flashes %}
-            {% for message in flash %}
-                <div class="alert">
-                    <div class="alert__message alert__message--{{ type }}" role="alert">
-                        {{ message }}
-                    </div>
-                </div>
-            {% endfor %}
-        {% endfor %}
+		{% for type,flash in app.flashes %}
+			{% for message in flash %}
+				<div class="alert">
+					<div class="alert__message alert__message--{{ type }}" role="alert">
+						{{ message }}
+					</div>
+				</div>
+			{% endfor %}
+		{% endfor %}
 
-        <main>
-            {% block content '' %}
-        </main>
+		<main>
+			{% block content '' %}
+		</main>
 
-        <footer></footer>
-    </body>
+		<footer>{% block footer '' %}</footer>
+	</body>
 </html>

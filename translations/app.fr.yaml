@@ -3,6 +3,24 @@ menu:
   connexion: Se connecter
   register: S'inscrire
 
+front:
+  homepage:
+    title: Votre gestionnaire de photo de profile.
+    description: Grâce à MyAvatar, vous pouvez gérer vos photos de profile et les utiliser sur les sites qui le permettent.
+    form:
+      email_placeholder: Votre adresse e-mail
+      submit: Voir le profile
+  staff:
+    title: Notre équipe
+    description: L'équipe de MyAvatar
+    roles:
+      po: Product Owner
+      sm: Scrum Master
+      dev: Développeur
+  footer:
+    all_right_reserved: © 2023-2024 https://myavatar.fr/, Tous droits réservés.
+    no_reproduce: Toute reproduction, distribution, modification, ou utilisation de tout ou partie du contenu de ce site web sans autorisation préalable écrite d'un membre de l'équipe est strictement interdite.
+
 account:
   title: Mon compte
   action:

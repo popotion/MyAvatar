@@ -1,13 +1,98 @@
 {% extends 'front/base.html.twig' %}
 
+{% trans_default_domain 'app' %}
+
 {% block content %}
-    <div class="front_homepage__container">
+	<div class="front_homepage__container">
 
-        <div class="front_homepage__container_welcome">
-            <h1>Un seul profil pour tout, partout.</h1>
-            <h4>Votre adresse e-mail devient votre passeport vers le monde numérique, vous permettant ainsi d’avoir le contrôle total de vos données personnelles.</h4>
-            <p>MyAvatar est construit pour un projet d'école.</p>
-        </div>
+		<div class="front_homepage__container_welcome">
+			<h1>{{ 'front.homepage.title'|trans }}</h1>
+			<h4>{{ 'front.homepage.description'|trans }}</h4>
+		</div>
+		{{ form_start(form, {attr: {
+				'class': 'front_homepage__container_see_avatar_form',
+			}}) }}
+		{{ form_widget(form.email, {
+                    'attr': {
+                        'placeholder': 'front.homepage.form.email_placeholder'|trans
+                    }
+                }) }}
 
-    </div>
+		<div class="blob-button-container">
+			<button class="blob-btn">
+
+				<span class="toDesktop">{{ 'front.homepage.form.submit'|trans }}</span>
+				<span class="toMobile"><img src="{{ asset('build/static/img/front/continue.svg') }}" alt="Continue"/></span>
+
+				<span class="blob-btn__inner">
+					<span class="blob-btn__blobs">
+						<span class="blob-btn__blob"></span>
+						<span class="blob-btn__blob"></span>
+						<span class="blob-btn__blob"></span>
+						<span class="blob-btn__blob"></span>
+					</span>
+				</span>
+			</button>
+			<br/>
+
+			<svg style="width: 20%" xmlns="http://www.w3.org/2000/svg" version="1.1">
+				<defs>
+					<filter id="goo">
+						<feGaussianBlur in="SourceGraphic" result="blur" stddeviation="10"></feGaussianBlur>
+						<feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 21 -7" result="goo"></feColorMatrix>
+						<feBlend in2="goo" in="SourceGraphic" result="mix"></feBlend>
+					</filter>
+				</defs>
+			</svg>
+		</div>
+
+
+		{{ form_end(form) }}
+
+		<p class="front_homepage__container_footer">MyAvatar est construit pour un projet d'école.</p>
+
+	</div>
+
+	<div class="team__container">
+		<div class="team_content">
+			<h3 class="team_title">{{ 'front.staff.title'|trans }}</h3>
+			<p>{{ 'front.staff.description'|trans }}</p>
+
+			<div class="team_content_list">
+				<div class="team_card">
+					<img src="{{asset('build/static/img/staff/romainmillan.svg')}}" alt="Icon hugocharrade"/>
+					<div class="team_card_content">
+						<h4>Hugo CHARRADE</h4>
+						<p>{{ 'front.staff.roles.po'|trans }}</p>
+					</div>
+				</div>
+				<div class="team_card">
+					<img src="{{asset('build/static/img/staff/romainmillan.jpeg')}}" alt="Icon romainmillan"/>
+					<div class="team_card_content">
+						<h4>Romain Millan</h4>
+						<p>{{ 'front.staff.roles.sm'|trans }}</p>
+					</div>
+				</div>
+				<div class="team_card">
+					<img src="{{asset('build/static/img/staff/geoffreypierre.png')}}" alt="Icon geoffreypierre"/>
+					<div class="team_card_content">
+						<h4>Geoffrey Pierre</h4>
+						<p>{{ 'front.staff.roles.dev'|trans }}</p>
+					</div>
+				</div>
+				<div class="team_card">
+					<img src="{{asset('build/static/img/staff/romainmillan.svg')}}" alt="Icon nathanbreton"/>
+					<div class="team_card_content">
+						<h4>Nathan Breton</h4>
+						<p>{{ 'front.staff.roles.dev'|trans }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block footer %}
+	<p>{{ 'front.footer.all_right_reserved'|trans }}</p>
+	<p>{{ 'front.footer.no_reproduce'|trans }}</p>
 {% endblock %}

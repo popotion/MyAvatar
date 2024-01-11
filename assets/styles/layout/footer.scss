@@ -1,0 +1,22 @@
+footer {
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: $primary;
+
+  p {
+    font-size: 0.75rem;
+    margin: 0;
+    font-family: "FiraCode", serif;
+    margin-left: 10px;
+    text-align: left;
+    color: $white;
+  }
+  p:first-child {
+    padding-top: 25px;
+  }
+  p:last-child {
+    padding-bottom: 25px;
+  }
+}
