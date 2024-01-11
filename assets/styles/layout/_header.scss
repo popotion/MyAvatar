@@ -10,6 +10,8 @@ header {
   justify-content: space-between;
 
   &_logo {
+    margin-left: 2.5%;
+
     a {
       display: flex;
       flex-direction: row;
@@ -33,6 +35,8 @@ header {
   }
 
   nav {
+    margin-right: 2.5%;
+
     ul {
       margin: 0;
       padding: 0;
