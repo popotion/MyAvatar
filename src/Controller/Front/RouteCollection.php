@@ -10,4 +10,5 @@ enum RouteCollection: string implements RouteCollectionInterface
     use AppRouteCollectionTrait;
 
     case HOMEPAGE = 'homepage';
+    case AVATAR = 'avatar';
 }

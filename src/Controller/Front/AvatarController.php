@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Controller\Front\RouteCollection;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Filesystem\Filesystem;
@@ -11,7 +12,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(
     path: '/avatar/{id}',
-    name: 'avatar',
+    name: RouteCollection::AVATAR->value,
     methods: ['GET']
 )]
 class AvatarController extends AbstractController
