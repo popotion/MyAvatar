@@ -10,6 +10,13 @@ front:
     form:
       email_placeholder: Votre adresse e-mail
       submit: Voir le profile
+  staff:
+    title: Notre équipe
+    description: L'équipe de MyAvatar
+    roles:
+      po: Product Owner
+      sm: Scrum Master
+      dev: Développeur
 
 account:
   title: Mon compte

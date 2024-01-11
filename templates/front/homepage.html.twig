@@ -52,4 +52,42 @@
 		<p class="front_homepage__container_footer">MyAvatar est construit pour un projet d'école.</p>
 
 	</div>
+
+	<div class="team__container">
+		<div class="team_content">
+			<h3 class="team_title">{{ 'front.staff.title'|trans }}</h3>
+			<p>{{ 'front.staff.description'|trans }}</p>
+
+			<div class="team_content_list">
+				<div class="team_card">
+					<img src="{{asset('build/static/img/staff/romainmillan.svg')}}" alt="Icon hugocharrade"/>
+					<div class="team_card_content">
+						<h4>Hugo CHARRADE</h4>
+						<p>{{ 'front.staff.roles.po'|trans }}</p>
+					</div>
+				</div>
+				<div class="team_card">
+					<img src="{{asset('build/static/img/staff/romainmillan.jpeg')}}" alt="Icon romainmillan"/>
+					<div class="team_card_content">
+						<h4>Romain Millan</h4>
+						<p>{{ 'front.staff.roles.sm'|trans }}</p>
+					</div>
+				</div>
+				<div class="team_card">
+					<img src="{{asset('build/static/img/staff/geoffreypierre.png')}}" alt="Icon geoffreypierre"/>
+					<div class="team_card_content">
+						<h4>Geoffrey Pierre</h4>
+						<p>{{ 'front.staff.roles.dev'|trans }}</p>
+					</div>
+				</div>
+				<div class="team_card">
+					<img src="{{asset('build/static/img/staff/romainmillan.svg')}}" alt="Icon nathanbreton"/>
+					<div class="team_card_content">
+						<h4>Nathan Breton</h4>
+						<p>{{ 'front.staff.roles.dev'|trans }}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 {% endblock %}
