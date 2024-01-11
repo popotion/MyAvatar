@@ -46,12 +46,17 @@ security:
     form:
       email: Adresse mail
       password: Mot de passe
-      agreeTerms: J'accepte les conditions
+      repeatPassword: Répéter le mot de passe
+      firstName: Prénom
+      lastName: Nom
+      agreeTerms: J'accepte les conditions d'utilisation
     error:
-      agreeTerms:
-        isNotTrue: Vous devez accepter les termes et conditions
-      password:
-        maxMessage: Le mot de passe doit avoir minimum 6 caractères.
+      agreeTermsNotTrue: Vous devez accepter les termes et conditions
+      passwordNotBlank: Veuilliez rentrez un mot de passe
+      emailNotBlank: Veuilliez rentrez une addresse email
+      firstNameNotBlank: Veuilliez rentrez une prénom
+      lastNameNotBlank: Veuilliez rentrez un nom
+      passwordNotCorrectRepeat: Les mots de passe ne sont pas identique
     flash:
       created: Votre compte MyAvatar à bien était crée.
   login:

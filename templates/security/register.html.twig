@@ -23,9 +23,37 @@
 			<div class="security_form_form_group security_form_form_group_col">
 				<div class="security_form_input">
 					<label for="#" class="security_form_label security_form_label_required">{{ 'security.register.form.email'|trans }}</label>
-					{{ form_widget(registrationForm.email) }}
+					{{ form_widget(registrationForm.email, {attr: {
+						'placeholder': 'xxxxxx@xxxx.xxx',
+					}}) }}
 					<div class="security_form_errors">
 						{{ form_errors(registrationForm.email, {attr: {
+                                'class': 'security_form_error'
+                            }}) }}
+					</div>
+				</div>
+			</div>
+			<div class="security_form_form_group security_form_form_group_col">
+				<div class="security_form_input">
+					<label for="#" class="security_form_label security_form_label_required">{{ 'security.register.form.firstName'|trans }}</label>
+					{{ form_widget(registrationForm.firstName, {attr: {
+						'placeholder': 'Pierre',
+					}}) }}
+					<div class="security_form_errors">
+						{{ form_errors(registrationForm.firstName, {attr: {
+                                'class': 'security_form_error'
+                            }}) }}
+					</div>
+				</div>
+			</div>
+			<div class="security_form_form_group security_form_form_group_col">
+				<div class="security_form_input">
+					<label for="#" class="security_form_label security_form_label_required">{{ 'security.register.form.lastName'|trans }}</label>
+					{{ form_widget(registrationForm.lastName, {attr: {
+						'placeholder': 'DUPONT',
+					}}) }}
+					<div class="security_form_errors">
+						{{ form_errors(registrationForm.lastName, {attr: {
                                 'class': 'security_form_error'
                             }}) }}
 					</div>
@@ -35,9 +63,26 @@
 				<div class="security_form_col">
 					<div class="security_form_input">
 						<label for="#" class="security_form_label security_form_label_required">{{ 'security.register.form.password'|trans }}</label>
-						{{ form_widget(registrationForm.plainPassword) }}
+						{{ form_widget(registrationForm.plainPassword, {attr: {
+							'placeholder': '*********',
+						}}) }}
 						<div class="security_form_errors">
 							{{ form_errors(registrationForm.plainPassword, {attr: {
+                                    'class': 'security_form_error'
+                                }}) }}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="security_form_form_group">
+				<div class="security_form_col">
+					<div class="security_form_input">
+						<label for="#" class="security_form_label security_form_label_required">{{ 'security.register.form.repeatPassword'|trans }}</label>
+						{{ form_widget(registrationForm.repeatPlainPassword, {attr: {
+							'placeholder': '*********',
+						}}) }}
+						<div class="security_form_errors">
+							{{ form_errors(registrationForm.repeatPlainPassword, {attr: {
                                     'class': 'security_form_error'
                                 }}) }}
 						</div>
