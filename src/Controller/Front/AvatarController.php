@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Asset\Packages;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 #[Route(
@@ -24,7 +25,7 @@ class AvatarController extends AbstractController
 
     public function __invoke(
         string $id,
-    ): ?BinaryFileResponse {
+    ): ?Response {
         $imageUrl = $this->getParameter('profilePictureDirectory') . '/' . $id;
 
         if ($this->filesystem->exists($imageUrlWithExtension = $imageUrl . '.jpeg')) {
@@ -45,8 +46,6 @@ class AvatarController extends AbstractController
             );
         }
 
-        return new BinaryFileResponse(
-            $this->getParameter('publicDirectory') . '/build/static/img/default.jpg',
-        );
+        return $this->redirectToRoute(RouteCollection::HOMEPAGE->prefixed());
     }
 }
