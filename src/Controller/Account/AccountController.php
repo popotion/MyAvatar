@@ -34,6 +34,7 @@ class AccountController extends AbstractController
     ): Response {
         /** @var User $user */
         $user = $this->getUser();
+        $currentEmail = $user->getEmail();
 
         $form = $this->createForm(UserFormType::class, $user, [
             'translator' => $this->translator,
@@ -50,6 +51,7 @@ class AccountController extends AbstractController
 
             $this->messageBus->dispatch(
                 new UpdateUser(
+                    $currentEmail,
                     $userData,
                     $profilePictureFile,
                     $this->getParameter('profilePictureDirectory'),
