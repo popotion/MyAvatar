@@ -29,7 +29,7 @@ class RegistrationController extends AbstractController
             '_locale' => 'en|fr',
         ],
     )]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    public function register(Request $request): Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user, [
