@@ -15,10 +15,10 @@ cc:			## Clear cache
 	$(CONSOLE) ca:cl -e $(or $(ENV), 'dev')
 
 install: 	## Install project
-install: config vendors npm
+install: config start db-init db-reload
 
 start:		## Start project
-start: install docker-start sf-start 
+start: dependencies docker-start sf-start dev-assets
 
 stop:		## Stop project
 stop: docker-stop sf-stop
@@ -36,15 +36,20 @@ sf-stop: 	## Stop symfony server
 sf-stop:
 	$(SF) server:stop
 
+dev-assets:		## Build assets
+dev-assets:
+	$(NPM) run dev
 
 ##
 ## —— Docker 🐳 ————————————————————————————————————————————————————————————————
+dependencies:	## Install dependencies
+dependencies: vendors npm
+
 docker-start:		## Start docker container
 	@$(DC) up -d --remove-orphans
 
 docker-stop:		## Stop docker container
 	@$(DC) stop
-
 
 ##
 ## —— Dependencies 🧱 ————————————————————————————————————————————————————————————————
@@ -53,7 +58,6 @@ vendors:	## Install php dependencies
 
 npm:		## Install front dependencies
 	$(NPM) install
-
 
 ##
 ## —— Database 📊 ————————————————————————————————————————————————————————————————
