@@ -27,10 +27,6 @@ class UserFormType extends AbstractType
                     new NotNull(),
                     new NotBlank(),
                 ],
-                'attr' => [
-                    'readonly' => true,
-                    'class' => 'readonly'
-                ],
                 'label' => $translator->trans('account.form.email', [], 'app')
             ])
             ->add('pictureProfile', VichImageType::class, [
