@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   db:
@@ -21,12 +21,6 @@ services:
       MYSQL_ROOT_PASSWORD: root
       PMA_PASSWORD: root
       PMA_USER: root
-    networks:
-      - myavatar
-
-  maildev:
-    image: maildev/maildev
-    command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
     networks:
       - myavatar
 
