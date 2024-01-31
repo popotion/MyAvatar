@@ -46,6 +46,8 @@ class AvatarController extends AbstractController
             );
         }
 
-        return $this->redirectToRoute(RouteCollection::HOMEPAGE->prefixed());
+        return new BinaryFileResponse(
+            $this->getParameter('publicDirectory') . '/build/static/img/default.jpg',
+        );
     }
 }
